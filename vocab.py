@@ -2,7 +2,7 @@
 This script should help to document and find back strudel vocabulary.
 
 Simply run:
-python vocab.py 'strudle_code_you_are_looking_for'
+python vocab.py 'strudel_code_you_are_looking_for'
 
 If it is a new entry, just follow this instructions.
 """
@@ -24,13 +24,13 @@ def create_argparser():
 
 
 def main():
-	"""Store new entries for strudle vocabulary."""
+	"""Store new entries for strudel vocabulary."""
       
 	# read vocab excel and turn into dictionary
 	vocab_dict = {}
 	vocab_excel = pd.read_excel('vocab_list.xlsx')
 	for i in range(0,len(vocab_excel)):
-		vocab_dict[vocab_excel.loc[i,'vocab']] = vocab_excel.loc[i,'strudle code']
+		vocab_dict[vocab_excel.loc[i,'vocab']] = vocab_excel.loc[i,'strudel_code']
 
 	# look for vocabulary
 	args = create_argparser()
@@ -45,14 +45,14 @@ def main():
 		answer = input()
 
 		if answer == 'y':
-			print(f"Please give me the strudle code you want to save for '{vocab}':")
-			strudle_code = input()
-			vocab_dict[vocab] = strudle_code
+			print(f"Please give me the strudel code you want to save for '{vocab}':")
+			strudel_code = input()
+			vocab_dict[vocab] = strudel_code
 
-			new_df = pd.DataFrame(list(vocab_dict.items()), columns=['vocab', 'strudle_code'])
+			new_df = pd.DataFrame(list(vocab_dict.items()), columns=['vocab', 'strudel_code'])
 			new_df.to_excel('vocab_list.xlsx')
 
-			print("\nNew vocab saved to the list.\nWhup whup! Our strudle vocabulary is growing!\nDon't forget to commit and push.")
+			print("\nNew vocab saved to the list.\nWhup whup! Our strudel vocabulary is growing!\nDon't forget to commit and push.")
 
 
 if __name__ == '__main__':
