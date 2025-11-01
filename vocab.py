@@ -4,7 +4,7 @@ This script should help to document and find back strudel vocabulary.
 Simply run:
 python vocab.py 'strudel_code_you_are_looking_for'
 
-If it is a new entry, just follow this instructions.
+If it is a new entry, just follow the instructions.
 """
 
 
