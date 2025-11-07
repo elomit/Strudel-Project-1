@@ -34,9 +34,14 @@ def main():
 
 	# look for vocabulary
 	args = create_argparser()
-	vocab = args.vocab
-	if vocab in vocab_dict:
-		print(f'\n{vocab_dict[vocab]}\n')
+
+	if args.vocab == 'show-all':
+		for key in vocab_dict.keys():
+			print(key)
+
+	elif args.vocab in vocab_dict:
+		print(f'\n{vocab_dict[args.vocab]}\n')
+	
 
 	# if it does not exist yet, add it to the list
 	else:
