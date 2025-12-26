@@ -41,6 +41,7 @@ def main():
 
 	elif args.vocab in vocab_dict:
 		print(f'\n{vocab_dict[args.vocab]}\n')
+	#test
 	
 
 	# if it does not exist yet, add it to the list
