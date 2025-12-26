@@ -34,18 +34,19 @@ def main():
 
 	# look for vocabulary
 	args = create_argparser()
+	vocab = args.vocab
 
-	if args.vocab == 'show-all':
+	if vocab == 'show-all':
 		for key in vocab_dict.keys():
 			print(key)
 
-	elif args.vocab in vocab_dict:
+	elif vocab in vocab_dict:
 		print(f'\n{vocab_dict[args.vocab]}\n')
 	
 
 	# if it does not exist yet, add it to the list
 	else:
-		print('It seems the patter you are looking for is not yet in the list.')
+		print('It seems the pattern you are looking for is not yet in the list.')
 		print('Do you want to add it? (y/n)')
 		answer = input()
 
