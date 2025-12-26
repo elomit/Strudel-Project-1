@@ -1,0 +1,12 @@
+,vocab,strudel_code
+0,n_function_example,"sound(""<jazz:2 jazz:5 jazz:1 jazz:4>*16"").n(""<2 5 1 4>*8"").sound(""jazz"")"
+1,bpm,setcpm(120/4)
+2,first_90bpm_beat,"setcpm(90/4) sound(""bd:2 sd:1 [bd:2 bd:2] sd"").bank(""RolandTR909"")"
+3,pachelbel,"note(""d a b:minor f# g d g a"").sound(""gm_violin"").room(0.5).gain(2).adsr("".2:.8:.8:.2"")"
+4,random_whitenoice_hh_16,"$: s(""white!16"").decay(sine.fast(4).range(0.05,.14)).gain(.4).sometimesBy(.1, x => x.ply(""2 | 4""))"
+5,sounds,gm_electric_guitar_muted \ngm_acoustic_bass \ngm_voice_oohs \ngm_blown_bottle \nsawtooth \nsquare \ntriangle
+6,scales,C:major A2:minor D:dorian G:mixolydian A2:minor:pentatonic F:major:pentatonic
+7,scale_example,"n(""0 2 4 <[6,8] [7,9]>"").scale(""F:major:pentatonic"").sound(""piano"")"
+8,banger_1,"$: note(""<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>"").sound(""gm_synth_bass_1"").lpf(800) $: sound(""bd*4, [~ <sd cp>]*2, [~ hh]*4"").bank(""RolandTR909"") $: n(`< [~ 0] 2 [0 2] [~ 2] [~ 0] 1 [0 1] [~ 1] [~ 0] 3 [0 3] [~ 3] [~ 0] 2 [0 2] [~ 2] >*4`).scale(""C4:minor"").sound(""gm_synth_strings_1"")"
+9,drums,AkaiLinn \nRhythmAce \nRolandTR808 \nRolandTR707 \nViscoSpaceDrum
+10,test,tatatatata

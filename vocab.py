@@ -41,7 +41,9 @@ def main():
 			print(key)
 
 	elif vocab in vocab_dict:
-		print(f'\n{vocab_dict[args.vocab]}\n')
+		code = vocab_dict[args.vocab]
+		code = bytes(code, "utf-8").decode("unicode_escape")
+		print(f"\n{code}\n")
 	
 
 	# if it does not exist yet, add it to the list
