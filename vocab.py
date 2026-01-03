@@ -28,9 +28,9 @@ def main():
       
 	# read vocab excel and turn into dictionary
 	vocab_dict = {}
-	vocab_excel = pd.read_excel('vocab_list.xlsx')
-	for i in range(0,len(vocab_excel)):
-		vocab_dict[vocab_excel.loc[i,'vocab']] = vocab_excel.loc[i,'strudel_code']
+	vocab_file = pd.read_csv('vocab_list.csv')
+	for i in range(0,len(vocab_file)):
+		vocab_dict[vocab_file.loc[i,'vocab']] = vocab_file.loc[i,'strudel_code']
 
 	# look for vocabulary
 	args = create_argparser()
@@ -58,7 +58,7 @@ def main():
 			vocab_dict[vocab] = strudel_code
 
 			new_df = pd.DataFrame(list(vocab_dict.items()), columns=['vocab', 'strudel_code'])
-			new_df.to_excel('vocab_list.xlsx')
+			new_df.to_csv('vocab_list.csv')
 
 			print("\nNew vocab saved to the list.\nWhup whup! Our strudel vocabulary is growing!\nDon't forget to commit and push.")
 
