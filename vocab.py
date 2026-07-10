@@ -23,6 +23,26 @@ def create_argparser():
     return args
 
 
+def read_multiline_input(prompt):
+    """Read a multi-line code block from stdin until the user ends it."""
+    print(prompt)
+    print("(Paste your code, then type --- on its own line and press Enter)")
+
+    lines = []
+    while True:
+        try:
+            line = input()
+        except EOFError:
+            break
+
+        if line.strip() == "---":
+            break
+
+        lines.append(line)
+
+    return "\n".join(lines)
+
+
 def main():
 	"""Store new entries for strudel vocabulary."""
       
@@ -53,14 +73,17 @@ def main():
 		answer = input()
 
 		if answer == 'y':
-			print(f"Please give me the strudel code you want to save for '{vocab}':")
-			strudel_code = input()
-			vocab_dict[vocab] = strudel_code
+			strudel_code = read_multiline_input(f"Please give me the strudel code you want to save for '{vocab}':")
+			if strudel_code:
+				vocab_dict[vocab] = strudel_code
 
-			new_df = pd.DataFrame(list(vocab_dict.items()), columns=['vocab', 'strudel_code'])
-			new_df.to_csv('vocab_list.csv')
+				new_df = pd.DataFrame(list(vocab_dict.items()), columns=['vocab', 'strudel_code'])
+				new_df.to_csv('vocab_list.csv')
 
-			print("\nNew vocab saved to the list.\nWhup whup! Our strudel vocabulary is growing!\nDon't forget to commit and push.")
+				print("\nNew vocab saved to the list.\nWhup whup! Our strudel vocabulary is growing!\nDon't forget to commit and push.")
+
+			else:
+				print("No code was entered. Nothing was saved.")
 
 
 if __name__ == '__main__':
