@@ -13,3 +13,31 @@
 11,drums_1,"sound(""bd*4, [~ <sd cp>]*2, [~ hh]*4"").bank(""RolandTR909"")"
 12,classy_baseline,"note(""<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>"")\n.sound(""gm_synth_bass_1"")\n.lpf(800)"
 13,small_things,\n@ = prolong\n$: = stack\n_$: = mute that part of a stack\n~ = skip note\n/2 = slow down\n<> = alternate\n! = replicate
+14,first_groove,"setcpm(130/4)
+
+const drums = stack(
+  sound(""bd*4"").bank(""RolandTR909"").gain(1),
+  //sound(""~ cp ~ cp"").bank(""RolandTR909"").gain(0.9),
+  sound(""hh*8 [cp cp]"").bank(""RolandTR909"").gain(0.5).pan(sine.range(0.3,0.7))
+)
+
+const bass = note(""<c2 c2 c2 [c2 eb2]>*4"")
+  .sound(""sawtooth"")
+  .lpf(600)
+  .sustain(0.15)
+  .gain(0.7)
+  .struct(""t*8"")
+
+const stabs = note(""<[c3,eb3,g3,bb3] [eb3,g3,bb3,d4] [ab2,c3,eb3,g3] [g2,bb2,d3,f3]>"")
+  .sound(""sawtooth"")
+  .lpf(1200)
+  .attack(0.01)
+  .decay(0.2)
+  .sustain(0.4)
+  .release(0.3)
+  .gain(0.6)
+  .struct(""~ t ~ t ~ t ~ t"")
+
+cat(
+  stack(bass, drums, stabs)
+)"

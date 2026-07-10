@@ -26,7 +26,7 @@ def create_argparser():
 def read_multiline_input(prompt):
     """Read a multi-line code block from stdin until the user ends it."""
     print(prompt)
-    print("(Paste your code, then type --- on its own line and press Enter)")
+    print("(Paste your code, then type --- in the final line and press Enter)")
 
     lines = []
     while True:
@@ -75,7 +75,7 @@ def main():
 		if answer == 'y':
 			strudel_code = read_multiline_input(f"Please give me the strudel code you want to save for '{vocab}':")
 			if strudel_code:
-				vocab_dict[vocab] = strudel_code
+				vocab_dict[vocab] = strudel_code	
 
 				new_df = pd.DataFrame(list(vocab_dict.items()), columns=['vocab', 'strudel_code'])
 				new_df.to_csv('vocab_list.csv')
