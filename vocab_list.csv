@@ -41,3 +41,14 @@ const stabs = note(""<[c3,eb3,g3,bb3] [eb3,g3,bb3,d4] [ab2,c3,eb3,g3] [g2,bb2,d3
 cat(
   stack(bass, drums, stabs)
 )"
+15,trance_switch_angel,"// lead
+$: n(""<0 4 0 9 7>*16"".add(""<7 _ _ 6 5 _ _ 6>*2"")).scale(""g:minor"").trans(-12).o(3).sound(""sawtooth"")
+  .lpf(100).lpenv(5).lps(0.2).lpd(0.12).lpq(2)
+
+// base
+$: n(""<7 _ _ 6 5 _ <5 3> <6 4>>*2"").scale(""g:minor"").trans(-24).o(3).sound(""supersaw"")
+  .detune(rand)
+  .lpf(1000).lpenv(1.5).lps(0.2).lpd(0.12).lpq(2)
+
+// drum
+$: s(""bd:2!4"").attack(0.0001)"
